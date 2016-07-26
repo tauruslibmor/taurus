@@ -1,0 +1,5 @@
+#cmakedefine TAURUS_HAS_Core
+#cmakedefine TAURUS_HAS_CSM
+#cmakedefine H5_USE_16_API
+#cmakedefine HAVE_EIGEN
+#cmakedefine HAVE_LIBGP

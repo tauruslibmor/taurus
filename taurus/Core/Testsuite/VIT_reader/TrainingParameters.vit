@@ -1,0 +1,7 @@
+% Comments have to start with #
+% Using 2 configurations with 4 parameters per configuration
+% point 1, point 2, point 3, point 4
+% Taurus
+2 4
+0.13 -0.13 0.13 -0.13
+0.13 -1.13 5.13 -0.19

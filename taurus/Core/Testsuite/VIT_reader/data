@@ -1,0 +1,9 @@
+# -*- getpot -*- (GetPot mode activation for emacs)
+#-------------------------------------------------
+#      Data file for the Laplacian example
+#-------------------------------------------------
+
+[parameters]
+    vit_file = TrainingParameters.vit 	# File which contains the parameters 
+
+[../]

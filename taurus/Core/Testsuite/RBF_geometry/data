@@ -1,0 +1,48 @@
+# -*- getpot -*- (GetPot mode activation for emacs)
+#-------------------------------------------------
+#      Data file for the Laplacian example
+#-------------------------------------------------
+
+#================================================
+# Full-order model setting
+#================================================
+
+[finite_element]
+    degree                       = P1
+
+[../]
+
+[parameters]
+    vit_file = TrainingParameters.vit 	# File which contains the parameters 
+
+[../]
+
+[input_mesh]
+	source                       = file
+	
+[../]	
+	
+[mesh]
+    nx                           = 20
+    ny                           = 20
+    nz                           = 20
+
+[../]
+
+[space_discretization]
+    mesh_dir        = ./
+    mesh_file       = bypassF.mesh
+    mesh_type       = .mesh
+	
+[../]	
+
+[exporter]
+    name_output_file             = DeformedGeo
+    name_output_file_system      = SystemSnapshots
+    system_matrix_prefix         = A
+    system_rhs_prefix            = F
+	multimesh  					 = false # if true, at every time step it writes the current mesh. If false, it writes just at the first time step. 
+    start      					 = 0
+    save       					 = 1
+    
+[../]

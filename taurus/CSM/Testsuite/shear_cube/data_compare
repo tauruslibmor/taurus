@@ -1,0 +1,115 @@
+# -*- getpot -*- (GetPot mode activation for emacs)
+#-------------------------------------------------
+#      Data file for the Laplacian example
+#-------------------------------------------------
+
+#================================================
+# Full-order model setting
+#================================================
+
+[finite_element]
+    degree                       = P1
+
+[../]
+
+[space_discretization]
+    mesh_dir        = ./
+    mesh_file       = Cube.mesh
+    mesh_type       = .mesh
+	
+[../]	
+
+[parameters]
+    vit_file = TestingParameters.vit  	# File which contains the parameters 
+
+[../]
+
+[structure]
+    model   = StVenantKirchhoff # LinearElasticity, NeoHookean, RaghavanVorp, StVenantKirchhoff
+	useDirectionalLoad = true
+	flagDirectionalLoad = 4
+	vectorDirectionalLoad = '0.0 0.0 1.0'
+		
+[../]
+
+[newton]
+	tolerance = 1e-6
+	maxiter   = 20
+	online_backtracing_iterations = 0
+	online_backtracing_factor = 0.5
+	
+[../]	
+
+[exporter]
+    multimesh  					 = true # if true, at every time step it writes the current mesh. If false, it writes just at the first time step. 
+    start      					 = 0
+    save       					 = 1
+
+[../]
+
+
+
+#================================================
+# Reduced-order model generation setting
+#================================================
+
+[importer]
+    name_input_file              = SolSnapshots
+	name_input_file_system       = SystemSnapshots
+[../]
+
+[hyperreduction]
+    NLN_snapshots_collection     = tierII # tierI or tierII
+	jacobian_approximation       = DEIM # DEIM or MDEIM
+	split_internal_force         = true # dafult is false
+[../]
+
+[residual_internal_force]
+    name_input_file              = SystemSnapshots
+    prefix        		 = resI
+    nortol		         = 1e-4
+
+[../]
+
+[residual_internal_force_iso]
+    name_input_file              = SystemSnapshots
+    prefix        		 = resI_iso
+    nortol		         = 1e-4
+
+[../]
+
+[residual_internal_force_vol]
+    name_input_file              = SystemSnapshots
+    prefix        		 = resI_vol
+    nortol		         = 1e-4
+
+[../]
+
+[residual_external_force]
+    name_input_file              = SystemSnapshots
+    prefix        		 = resE
+    nortol		         = 1e-4
+
+[../]
+
+[jacobian_matrix]
+    name_input_file              = SystemSnapshots
+    prefix        		 = Jac
+    nortol		         = 1e-4
+
+[../]
+
+
+[solution]
+    name_input_file              = SolSnapshots
+    prefix						 = soluzione
+    nortol                       = 1e-4
+
+[../]
+
+
+[rom_exporter]
+    name_output_file             = ROM
+    hyper_output_file            = ROM_Hyper
+
+[../]

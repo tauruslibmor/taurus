@@ -1,0 +1,32 @@
+<PackageDependencies project="Taurus">
+  <Package name="Core" dir="taurus/Core" type="PS">
+    <LIB_REQUIRED_DEP_PACKAGES/>
+    <LIB_OPTIONAL_DEP_PACKAGES/>
+    <TEST_REQUIRED_DEP_PACKAGES/>
+    <TEST_OPTIONAL_DEP_PACKAGES/>
+    <LIB_REQUIRED_DEP_TPLS value="BLAS,LAPACK,Trilinos,ParMETIS,Boost,MPI,LifeV"/>
+    <LIB_OPTIONAL_DEP_TPLS value="QHull,libgp,Eigen"/>
+    <TEST_REQUIRED_DEP_TPLS/>
+    <TEST_OPTIONAL_DEP_TPLS/>
+    <EmailAddresses>
+      <Checkin address="core-checkins@software.sandia.gov"/>
+      <Regression address="core-regression@software.sandia.gov"/>
+    </EmailAddresses>
+    <ParentPackage value=""/>
+  </Package>
+  <Package name="CSM" dir="taurus/CSM" type="EX">
+    <LIB_REQUIRED_DEP_PACKAGES value="Core"/>
+    <LIB_OPTIONAL_DEP_PACKAGES/>
+    <TEST_REQUIRED_DEP_PACKAGES/>
+    <TEST_OPTIONAL_DEP_PACKAGES/>
+    <LIB_REQUIRED_DEP_TPLS value="BLAS,LAPACK,Trilinos,ParMETIS,Boost,MPI,LifeV"/>
+    <LIB_OPTIONAL_DEP_TPLS value="QHull,libgp,Eigen"/>
+    <TEST_REQUIRED_DEP_TPLS/>
+    <TEST_OPTIONAL_DEP_TPLS/>
+    <EmailAddresses>
+      <Checkin address="csm-checkins@software.sandia.gov"/>
+      <Regression address="csm-regression@software.sandia.gov"/>
+    </EmailAddresses>
+    <ParentPackage value=""/>
+  </Package>
+</PackageDependencies>

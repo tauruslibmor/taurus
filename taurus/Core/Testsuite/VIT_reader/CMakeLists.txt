@@ -1,0 +1,22 @@
+INCLUDE(TribitsAddExecutable)
+
+TRIBITS_ADD_EXECUTABLE(
+  VIT_reader
+  SOURCES main.cpp
+  COMM serial mpi
+)
+
+TRIBITS_COPY_FILES_TO_BINARY_DIR(
+  data_file_vit_reader
+  CREATE_SYMLINK
+  SOURCE_FILES data
+  SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+TRIBITS_COPY_FILES_TO_BINARY_DIR(
+  vit_file
+  CREATE_SYMLINK
+  SOURCE_FILES TrainingParameters.vit
+  SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
